@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">Task Manager</string>
-    <string name="usuario">Usuario</string>
-    <string name="contraseña">Contraseña</string>
-    <string name="registrar">Registrar</string>
+    <string name="app_name">Task Manager 360</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
     <string name="login">Login</string>
-    <string name="imagenlogin">Imagen Login</string>
+    <string name="img_login">Image Login</string>
+    <string name="new_task">New Task</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="delete_task">Delete Task</string>
 </resources>

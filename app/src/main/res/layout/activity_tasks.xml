@@ -2,24 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/lytTasks"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:overScrollMode="always"
-    tools:context=".TasksActivity">
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fbtAddTask"
-        android:layout_width="55dp"
-        android:layout_height="75dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:alpha="1"
-        android:clickable="true"
-        android:focusable="true"
-        android:textAlignment="center"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="@android:dimen/app_icon_size"
-        app:srcCompat="@android:drawable/ic_input_add" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:actionBarNavMode="tabs"
+    tools:menu="@menu/action_bar" />

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/optNewTask"
+        android:title="@string/new_task" />
+    <item
+        android:id="@+id/optEditTask"
+        android:title="@string/edit_task" />
+    <item
+        android:id="@+id/optDeleteTask"
+        android:title="@string/delete_task" />
+</menu>
