@@ -4,23 +4,29 @@ import java.util.Date;
 
 public class Tarea {
 
+    private int idTarea;
     private String nombre;
     private String descripcion;
     private Date fecha;
-    private double coste;
+    private double precio;
     private Prioridad prioridad;
     private boolean tareaFinalizada;
 
     public Tarea(){}
 
-    public Tarea(String nombre, String descripcion, Date fecha, double coste, Prioridad prioridad, boolean tareaFinalizada) {
+    public Tarea(int idTarea, String nombre, String descripcion, Date fecha, double precio, Prioridad prioridad, boolean tareaFinalizada) {
+        this.idTarea = idTarea;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;
-        this.coste = coste;
+        this.precio = precio;
         this.prioridad = prioridad;
         this.tareaFinalizada = tareaFinalizada;
     }
+
+    public int getIdTarea() {return idTarea;}
+
+    public void setIdTarea(int idTarea) {this.idTarea = idTarea;}
 
     public String getNombre() {
         return nombre;
@@ -46,12 +52,12 @@ public class Tarea {
         this.fecha = fecha;
     }
 
-    public double getCoste() {
-        return coste;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setCoste(double coste) {
-        this.coste = coste;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public Prioridad getPrioridad() {
