@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item" />
+    <item
+        android:id="@+id/itmEditTask"
+        android:title="@string/edit_task" />
+    <item
+        android:id="@+id/itmDeleteTask"
+        android:title="@string/delete_task" />
+    <item
+        android:id="@+id/itmDone"
+        android:title="@string/mark_done" />
 </menu>

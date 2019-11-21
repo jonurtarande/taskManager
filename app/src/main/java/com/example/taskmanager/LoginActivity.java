@@ -3,18 +3,20 @@ package com.example.taskmanager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etUser;
     private EditText etPassword;
 
-    SharedPreferences preferencias;
-    SharedPreferences.Editor editor;
+    private SharedPreferences preferencias;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view){
+        //preferencias.getString("user",null);
+        //preferencias.getString("password",null);
+        if(etUser.getText().toString().equals(preferencias.getString("user",null))){
+            if(etPassword.getText().toString().equals(preferencias.getString("password",null))){
+                Intent activity = new Intent(this, TasksActivity.class);
+            }else
+                Toast.makeText(this,R.string.wrong_pass,Toast.LENGTH_LONG);
+        }else
+            Toast.makeText(this,R.string.wrong_user,Toast.LENGTH_LONG);
 
     }
 
