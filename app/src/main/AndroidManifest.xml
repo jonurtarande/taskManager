@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/appicon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".NewTaskActivity"></activity>
         <activity android:name=".TasksActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

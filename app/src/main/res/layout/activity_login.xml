@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lytLogin"
+    android:id="@+id/scrLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:actionBarNavMode="tabs"
+    android:layout_marginStart="8dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/lytLogin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -21,59 +28,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/login" />
 
-    <EditText
-        android:id="@+id/etUser"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/user"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogin" />
+        <EditText
+            android:id="@+id/etUser"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/user"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etPwd"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUser" />
+            <EditText
+                android:id="@+id/etPwd"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="@string/password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etUser" />
 
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:onClick="registrar"
-        android:text="@string/register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPwd" />
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="24dp"
+                android:onClick="registrar"
+                android:text="@string/register"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPwd" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="64dp"
-        android:onClick="login"
-        android:text="@string/login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPwd" />
-
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="64dp"
+                android:onClick="login"
+                android:text="@string/login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPwd" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

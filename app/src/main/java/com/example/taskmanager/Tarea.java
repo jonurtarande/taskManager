@@ -36,9 +36,7 @@ public class Tarea {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+    public String getDescripcion() { return descripcion; }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -72,7 +70,5 @@ public class Tarea {
         return tareaFinalizada;
     }
 
-    public void setTareaFinalizada(boolean tareaFinalizada) {
-        this.tareaFinalizada = tareaFinalizada;
-    }
+    public void setTareaFinalizada(boolean tareaFinalizada) { this.tareaFinalizada = tareaFinalizada; }
 }

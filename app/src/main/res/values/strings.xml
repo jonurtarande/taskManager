@@ -8,4 +8,11 @@
     <string name="new_task">New Task</string>
     <string name="edit_task">Edit Task</string>
     <string name="delete_task">Delete Task</string>
+    <string name="img_priority">Image Priority</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="date">Date</string>
+    <string name="price">Price</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_task">Create Task</string>
 </resources>
