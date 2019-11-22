@@ -5,8 +5,19 @@
     <string name="user">User</string>
     <string name="delete_task">Delete Task</string>
     <string name="edit_task">Edit Task</string>
-    <string name="img_login">Image Login</string>
+    <string name="img_login">Login image</string>
     <string name="login">Login</string>
     <string name="new_task">New Task</string>
     <string name="register">Register</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_task">Create task</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="img_priority">Priority image</string>
+    <string name="mark_done">Mark as done</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="task_options">Task options</string>
+    <string name="wrong_pass">Wrong password</string>
+    <string name="wrong_user">Wrong user</string>
 </resources>

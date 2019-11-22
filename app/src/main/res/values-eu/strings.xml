@@ -3,4 +3,21 @@
     <string name="app_name">TaskManager</string>
     <string name="user">Erabiltzailea</string>
     <string name="password">Pasahitza</string>
+    <string name="cancel">Ezeztatu</string>
+    <string name="create_task">Ataza sortu</string>
+    <string name="date">Data</string>
+    <string name="delete_task">Ataza ezabatu</string>
+    <string name="description">Deskribapena</string>
+    <string name="edit_task">Ataza editatu</string>
+    <string name="login">Identifikatu</string>
+    <string name="img_login">Login irudia</string>
+    <string name="img_priority">Lehentasun irudia</string>
+    <string name="wrong_user">Erabiltzaile okerra</string>
+    <string name="wrong_pass">Pasahitz okerra</string>
+    <string name="register">Izena eman</string>
+    <string name="task_options">Ataza aukerak</string>
+    <string name="price">Prezioa</string>
+    <string name="new_task">Ataza berria</string>
+    <string name="name">Izena</string>
+    <string name="mark_done">Markatu eginda</string>
 </resources>

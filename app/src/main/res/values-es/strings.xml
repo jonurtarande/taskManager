@@ -5,8 +5,19 @@
     <string name="user">Usuario</string>
     <string name="delete_task">Borrar Tarea</string>
     <string name="edit_task">Editar Tarea</string>
-    <string name="img_login">Imagen Login</string>
+    <string name="img_login">Imagen login</string>
     <string name="register">Registrar</string>
     <string name="new_task">Nueva tarea</string>
     <string name="login">Identificarse</string>
+    <string name="cancel">Cancelar</string>
+    <string name="create_task">Crear tarea</string>
+    <string name="date">Fecha</string>
+    <string name="description">Descripción</string>
+    <string name="img_priority">"Imagen prioridad "</string>
+    <string name="wrong_pass">Contraseña errónea</string>
+    <string name="wrong_user">Usuario erróneo</string>
+    <string name="task_options">Opciones de tarea</string>
+    <string name="price">Precio</string>
+    <string name="name">Nombre</string>
+    <string name="mark_done">Marcar como hecho</string>
 </resources>

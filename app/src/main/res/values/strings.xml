@@ -4,11 +4,11 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
-    <string name="img_login">Image Login</string>
+    <string name="img_login">Login Image</string>
     <string name="new_task">New Task</string>
     <string name="edit_task">Edit Task</string>
     <string name="delete_task">Delete Task</string>
-    <string name="img_priority">Image Priority</string>
+    <string name="img_priority">Priority Image</string>
     <string name="name">Name</string>
     <string name="description">Description</string>
     <string name="date">Date</string>
