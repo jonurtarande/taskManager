@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -40,6 +41,7 @@ public class NewTaskActivity extends AppCompatActivity {
         etFecha = findViewById(R.id.etFecha);
         etPrecio = findViewById(R.id.etPrecio);
         spnPrioridad = findViewById(R.id.spnPrioridad);
+        spnPrioridad.setAdapter(new ArrayAdapter<Prioridad>(this, android.R.layout.simple_spinner_item, Prioridad.values()));
     }
 
     public void mostrarCalendario(View view) {
@@ -67,6 +69,7 @@ public class NewTaskActivity extends AppCompatActivity {
         if(validarCampos()){
            openDB();
            insertTarea();
+           finish();
         }else
             Toast.makeText(this,R.string.error_on_create,Toast.LENGTH_SHORT).show();
     }
