@@ -48,7 +48,7 @@ public class NewTaskActivity extends AppCompatActivity {
     public void createTask(View view){
         if(validarCampos()){
            openDB();
-           getTarea();
+           insertTarea();
         }
     }
 
@@ -57,23 +57,18 @@ public class NewTaskActivity extends AppCompatActivity {
         db = dbAdmin.getWritableDatabase();
     }
 
-    private void getTarea() {
-        String nombre = etNombre.getText().toString();
-        String descripcion = etDescripcion.getText().toString();
-        String fecha = etFecha.getText().toString();
-        String precio = etPrecio.getText().toString();
-        String prioridad = spnPrioridad.getSelectedItem().toString();
-
-        ContentValues registro = new ContentValues();
-        registro.put("nombre",nombre);
-        registro.put("descripcion", descripcion);
-        registro.put("fecha",fecha);
-        registro.put("precio", precio);
-        registro.put("prioridad", prioridad);
-        //Seguir por aqui
+    private void insertTarea() {
+        ContentValues values = new ContentValues();
+        values.put("nombre",etNombre.getText().toString());
+        values.put("descripcion", etDescripcion.getText().toString());
+        values.put("fecha",etFecha.getText().toString());
+        values.put("precio", etPrecio.getText().toString());
+        values.put("prioridad", spnPrioridad.getSelectedItem().toString());
+        db.insert("tarea",null, values);
+        db.close();
     }
 
     public void cancel(View view){
-
+        finish();
     }
 }

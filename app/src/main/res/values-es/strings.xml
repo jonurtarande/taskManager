@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TaskManager</string>
+    <string name="app_name">Gestor de Tareas 360</string>
     <string name="password">Contraseña</string>
     <string name="user">Usuario</string>
     <string name="delete_task">Borrar Tarea</string>
@@ -20,4 +20,7 @@
     <string name="price">Precio</string>
     <string name="name">Nombre</string>
     <string name="mark_done">Marcar como hecho</string>
+    <string name="all">Todas</string>
+    <string name="done">Hechas</string>
+    <string name="undone">Sin Hacer</string>
 </resources>

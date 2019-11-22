@@ -19,4 +19,7 @@
     <string name="task_options">Task options</string>
     <string name="wrong_pass">Wrong password</string>
     <string name="wrong_user">Wrong user</string>
+    <string name="all">All</string>
+    <string name="done">Done</string>
+    <string name="undone">Undone</string>
 </resources>
