@@ -38,7 +38,7 @@ public class Tarea implements Serializable {
     }
 
     private Date strToDate(String fecha){
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         try {
             return format.parse(fecha);
         }catch (ParseException e){

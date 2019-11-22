@@ -2,12 +2,15 @@ package com.example.taskmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -39,6 +42,21 @@ public class NewTaskActivity extends AppCompatActivity {
         spnPrioridad = findViewById(R.id.spnPrioridad);
     }
 
+    public void mostrarCalendario(View view) {
+        switch (view.getId()) {
+            case R.id.etFecha:
+                DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        final String selectedDate = day + "/" + (month+1) + "/" + year;
+                        etFecha.setText(selectedDate);
+                    }
+                });
+                newFragment.show(getSupportFragmentManager(), "datePicker");
+                break;
+        }
+    }
+
     private boolean validarCampos(){
 
         return true;
@@ -49,7 +67,8 @@ public class NewTaskActivity extends AppCompatActivity {
         if(validarCampos()){
            openDB();
            insertTarea();
-        }
+        }else
+            Toast.makeText(this,R.string.error_on_create,Toast.LENGTH_SHORT).show();
     }
 
     private void openDB(){

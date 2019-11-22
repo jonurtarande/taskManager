@@ -23,4 +23,9 @@
     <string name="done">Done</string>
     <string name="all">All</string>
     <string name="undone">Undone</string>
+    <string name="error_on_create">Cannot create task. Check field values</string>
+    <string name="high">High</string>
+    <string name="urgent">Urgent</string>
+    <string name="medium">Medium</string>
+    <string name="low">Low</string>
 </resources>

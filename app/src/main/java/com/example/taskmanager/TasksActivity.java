@@ -48,6 +48,7 @@ public class TasksActivity extends AppCompatActivity {
                 tareas.add(tarea);
             }while(c.moveToNext());
         }
+        db.close();
     }
 
     private void initComponents() {

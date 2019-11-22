@@ -23,4 +23,9 @@
     <string name="all">Guztiak</string>
     <string name="done">Egindakoak</string>
     <string name="undone">Egin Gabekoak</string>
+    <string name="error_on_create">Ezin ataza sortu. Begiratu eremuen balioak</string>
+    <string name="low">Baxua</string>
+    <string name="urgent">Larria</string>
+    <string name="high">Altua</string>
+    <string name="medium">Erdia</string>
 </resources>

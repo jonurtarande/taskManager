@@ -21,6 +21,11 @@
     <string name="name">Nombre</string>
     <string name="mark_done">Marcar como hecho</string>
     <string name="all">Todas</string>
-    <string name="done">Hechas</string>
-    <string name="undone">Sin Hacer</string>
+    <string name="done">Realizadas</string>
+    <string name="undone">Pendientes</string>
+    <string name="error_on_create">No se pudo crear la tarea. Comprueba los valores de los campos</string>
+    <string name="high">Alta</string>
+    <string name="low">Baja</string>
+    <string name="medium">Media</string>
+    <string name="urgent">Urgente</string>
 </resources>
