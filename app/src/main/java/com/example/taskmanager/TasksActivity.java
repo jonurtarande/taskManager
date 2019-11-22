@@ -2,43 +2,60 @@ package com.example.taskmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class TasksActivity extends AppCompatActivity {
 
-    private TareaAdapter adapter;
+    private TaskListAdapter adapter;
     private ListView listaTareas;
     private ArrayList<Tarea> tareas;
+    private AdminSQLiteOpenHelper dbAdmin;
+    private SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
 
-        adapter = new TareaAdapter(this, R.layout.tarea, tareas);
+        initComponents();
+        initDB();
+    }
+
+    private void initDB() {
+        dbAdmin = new AdminSQLiteOpenHelper(this,"dbTasks",null,1);
+        db = dbAdmin.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM tarea",null);
+        if(c.moveToFirst()){
+            do{
+                int idTarea = c.getInt(0);
+                String nombre = c.getString(1);
+                String descripcion = c.getString(2);
+                String fecha = c.getString(3);
+                double precio = c.getDouble(4);
+                String prioridad = c.getString(5);
+                int finalizada = c.getInt(6);
+                Tarea tarea = new Tarea(idTarea,nombre,descripcion,fecha,precio,prioridad,finalizada);
+                tareas.add(tarea);
+            }while(c.moveToNext());
+        }
+    }
+
+    private void initComponents() {
+        tareas = new ArrayList<Tarea>();
+        adapter = new TaskListAdapter(this, R.layout.tarea, tareas);
         listaTareas = (ListView) findViewById(R.id.lstTarea);
         listaTareas.setAdapter(adapter);
-
-        registerForContextMenu(listaTareas.getSelectedView());
-        /*
-        listaTareas.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                getMenuInflater().inflate(R.menu.context_menu_task,);
-
-
-
-                return false;
-            }
-        });*/
+        registerForContextMenu(listaTareas);
     }
 
     @Override
@@ -50,20 +67,37 @@ public class TasksActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id==R.id.itmNewTask) {
-            // Lanzar activity_new_task
+            Intent activity = new Intent(this, NewTaskActivity.class);
+            startActivity(activity);
         }
         return super.onOptionsItemSelected(item);
     }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
-        menu.setHeaderTitle(R.string.action);
+        menu.setHeaderTitle(R.string.task_options);
         getMenuInflater().inflate(R.menu.context_menu_task, menu);
     }
+    /*
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
 
-    public void addTask(View view){
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"admin",null,1);
-        SQLiteDatabase db = admin.getWritableDatabase();
-    }
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId()) {
+            case R.id.itmEditTask:
+                lblMensaje.setText("Etiqueta: Opcion 1 pulsada!");
+                return true;
+            case R.id.itmDeleteTask:
+                lblMensaje.setText("Etiqueta: Opcion 2 pulsada!");
+                return true;
+            case R.id.itmDone:
+                lblMensaje.setText("Lista[" + info.position + "]: Opcion 1 pulsada!");
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }*/
 
     public void editTask(View view){
 
@@ -72,4 +106,9 @@ public class TasksActivity extends AppCompatActivity {
     public void deleteTask(View view){
 
     }
+
+    public void setDone(View view){
+
+    }
+
 }

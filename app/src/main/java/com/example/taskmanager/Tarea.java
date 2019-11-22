@@ -1,8 +1,11 @@
 package com.example.taskmanager;
 
+import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Tarea {
+public class Tarea implements Serializable {
 
     private int idTarea;
     private String nombre;
@@ -24,9 +27,48 @@ public class Tarea {
         this.tareaFinalizada = tareaFinalizada;
     }
 
-    public int getIdTarea() {return idTarea;}
+    public Tarea(int idTarea, String nombre, String descripcion, String fecha, double precio, String prioridad, int tareaFinalizada){
+        this.idTarea = idTarea;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = strToDate(fecha);
+        this.precio = precio;
+        this.prioridad = strToPrioridad(prioridad);
+        this.tareaFinalizada = intToBoolean(tareaFinalizada);
+    }
 
-    public void setIdTarea(int idTarea) {this.idTarea = idTarea;}
+    private Date strToDate(String fecha){
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            return format.parse(fecha);
+        }catch (ParseException e){
+            return null;
+        }
+    }
+
+    private Prioridad strToPrioridad(String prioridad){
+        prioridad = prioridad.toUpperCase();
+        switch (prioridad){
+            case "URGENTE": return Prioridad.URGENTE;
+            case "ALTA": return Prioridad.ALTA;
+            case "MEDIA": return Prioridad.MEDIA;
+            case "BAJA": return Prioridad.BAJA;
+            default: return null;
+        }
+    }
+
+    private boolean intToBoolean(int binary){
+        if(binary == 0) return false;
+        else return true;
+    }
+
+    public int getIdTarea() {
+        return idTarea;
+    }
+
+    public void setIdTarea(int idTarea) {
+        this.idTarea = idTarea;
+    }
 
     public String getNombre() {
         return nombre;
@@ -36,7 +78,9 @@ public class Tarea {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() { return descripcion; }
+    public String getDescripcion() {
+        return descripcion;
+    }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -70,5 +114,7 @@ public class Tarea {
         return tareaFinalizada;
     }
 
-    public void setTareaFinalizada(boolean tareaFinalizada) { this.tareaFinalizada = tareaFinalizada; }
+    public void setTareaFinalizada(boolean tareaFinalizada) {
+        this.tareaFinalizada = tareaFinalizada;
+    }
 }

@@ -16,7 +16,7 @@
     <string name="cancel">Cancel</string>
     <string name="create_task">Create Task</string>
     <string name="mark_done">Mark as done</string>
-    <string name="action">Action</string>
+    <string name="task_options">Task options</string>
     <string name="wrong_pass">Wrong password</string>
     <string name="wrong_user">Wrong user</string>
 </resources>

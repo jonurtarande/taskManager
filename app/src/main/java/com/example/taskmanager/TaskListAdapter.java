@@ -12,13 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class TareaAdapter extends ArrayAdapter<Tarea> {
+public class TaskListAdapter extends ArrayAdapter<Tarea> {
 
     private AppCompatActivity context;
     private int layout;
     private ArrayList<Tarea> tareas;
 
-    public TareaAdapter(AppCompatActivity context, int layout, ArrayList<Tarea> tareas){
+    public TaskListAdapter(AppCompatActivity context, int layout, ArrayList<Tarea> tareas){
         super(context, R.layout.tarea, tareas);
         this.context = context;
         this.layout = layout;
@@ -31,7 +31,8 @@ public class TareaAdapter extends ArrayAdapter<Tarea> {
 
         ImageView imgPrioridad = item.findViewById(R.id.imgPrioridad);
         switch (tareas.get(position).getPrioridad()){
-            case URGENTE: imgPrioridad.setImageResource(R.drawable.login); // Subir imgs a recursos
+            // Cambiar imagenes
+            case URGENTE: imgPrioridad.setImageResource(R.drawable.login);
             case ALTA: imgPrioridad.setImageResource(R.drawable.login);
             case MEDIA: imgPrioridad.setImageResource(R.drawable.login);
             case BAJA: imgPrioridad.setImageResource(R.drawable.login);

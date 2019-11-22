@@ -23,28 +23,32 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etUser = findViewById(R.id.etUser);
-        etPassword = findViewById(R.id.etPwd);
+        initComponents();
+        setPreferences();
+    }
+
+    private void setPreferences() {
         preferencias = getSharedPreferences("usuario", Context.MODE_PRIVATE);
         editor = preferencias.edit();
         editor.putString("user","jon");
         editor.putString("password", "1234");
+        editor.commit();
+    }
+
+    private void initComponents() {
+        etUser = findViewById(R.id.etUser);
+        etPassword = findViewById(R.id.etPwd);
     }
 
     public void login(View view){
-        //preferencias.getString("user",null);
-        //preferencias.getString("password",null);
-        if(etUser.getText().toString().equals(preferencias.getString("user",null))){
-            if(etPassword.getText().toString().equals(preferencias.getString("password",null))){
+        if(etUser.getText().toString().equals(preferencias.getString("user",""))){
+            if(etPassword.getText().toString().equals(preferencias.getString("password",""))){
                 Intent activity = new Intent(this, TasksActivity.class);
+                startActivity(activity);
             }else
-                Toast.makeText(this,R.string.wrong_pass,Toast.LENGTH_LONG);
+                Toast.makeText(this,R.string.wrong_pass,Toast.LENGTH_LONG).show();
         }else
-            Toast.makeText(this,R.string.wrong_user,Toast.LENGTH_LONG);
-
+            Toast.makeText(this,R.string.wrong_user,Toast.LENGTH_LONG).show();
     }
 
-    public void registrar(View view){
-
-    }
 }
