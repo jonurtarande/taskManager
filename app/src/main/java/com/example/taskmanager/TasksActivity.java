@@ -2,6 +2,7 @@ package com.example.taskmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,7 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -78,38 +80,39 @@ public class TasksActivity extends AppCompatActivity {
         menu.setHeaderTitle(R.string.task_options);
         getMenuInflater().inflate(R.menu.context_menu_task, menu);
     }
-    /*
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
         AdapterView.AdapterContextMenuInfo info =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
+        Tarea tareaSeleccionada = (Tarea) listaTareas.getSelectedItem();
         switch (item.getItemId()) {
             case R.id.itmEditTask:
-                lblMensaje.setText("Etiqueta: Opcion 1 pulsada!");
+                Intent activity = new Intent(this,EditTaskActivity.class);
+                activity.putExtra("idTarea", tareaSeleccionada.getIdTarea());
+                startActivity(activity);
                 return true;
             case R.id.itmDeleteTask:
-                lblMensaje.setText("Etiqueta: Opcion 2 pulsada!");
+                dbAdmin = new AdminSQLiteOpenHelper(this,"dbTasks",null,1);
+                db = dbAdmin.getWritableDatabase();
+                db.delete("tarea", "idTarea = " + tareaSeleccionada.getIdTarea(),null);
+                Intent activity2 = new Intent(this,TasksActivity.class);
+                startActivity(activity2);
                 return true;
             case R.id.itmDone:
-                lblMensaje.setText("Lista[" + info.position + "]: Opcion 1 pulsada!");
+                ContentValues values = new ContentValues();
+                if(tareaSeleccionada.isTareaFinalizada())
+                   values.put("finalizada",0);
+                else
+                    values.put("finalizada",1);
+
+                Intent activity3 = new Intent(this,TasksActivity.class);
+                startActivity(activity3);
                 return true;
             default:
                 return super.onContextItemSelected(item);
         }
-    }*/
-
-    public void editTask(View view){
-
-    }
-
-    public void deleteTask(View view){
-
-    }
-
-    public void setDone(View view){
-
     }
 
 }

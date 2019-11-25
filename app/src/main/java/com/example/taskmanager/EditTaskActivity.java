@@ -1,10 +1,9 @@
 package com.example.taskmanager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -14,9 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.Date;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class NewTaskActivity extends AppCompatActivity {
+public class EditTaskActivity extends AppCompatActivity {
 
     private EditText etNombre;
     private EditText etDescripcion;
@@ -33,6 +32,20 @@ public class NewTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_task);
 
         initComponents();
+        dbAdmin = new AdminSQLiteOpenHelper(this,"dbTasks",null,1);
+        db = dbAdmin.getReadableDatabase();
+        setValues();
+    }
+
+    private void setValues() {
+        Bundle bundle = getIntent().getExtras();
+        int idTarea = bundle.getInt("idTarea");
+        Cursor c = db.rawQuery("SELECT * FROM tarea WHERE idTarea=" + idTarea, null);
+        etNombre.setText(c.getString(1));
+        etDescripcion.setText(c.getString(2));
+        etFecha.setText(c.getString(3));
+        etPrecio.setText((int) c.getDouble(4));
+        spnPrioridad.setSelection(Integer.parseInt(c.getString(5)));
     }
 
     private void initComponents() {
