@@ -39,7 +39,7 @@ public class EditTaskActivity extends AppCompatActivity {
 
     private void setValues() {
         Bundle bundle = getIntent().getExtras();
-        int idTarea = bundle.getInt("idTarea");
+        int idTarea = bundle.getInt("pos");
         Cursor c = db.rawQuery("SELECT * FROM tarea WHERE idTarea=" + idTarea, null);
         etNombre.setText(c.getString(1));
         etDescripcion.setText(c.getString(2));

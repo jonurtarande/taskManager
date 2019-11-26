@@ -86,23 +86,22 @@ public class TasksActivity extends AppCompatActivity {
 
         AdapterView.AdapterContextMenuInfo info =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        Tarea tareaSeleccionada = (Tarea) listaTareas.getSelectedItem();
-        switch (item.getItemId()) {
+        switch (item.getItemId()){
             case R.id.itmEditTask:
                 Intent activity = new Intent(this,EditTaskActivity.class);
-                activity.putExtra("idTarea", tareaSeleccionada.getIdTarea());
+                activity.putExtra("pos", info.position);
                 startActivity(activity);
                 return true;
             case R.id.itmDeleteTask:
                 dbAdmin = new AdminSQLiteOpenHelper(this,"dbTasks",null,1);
                 db = dbAdmin.getWritableDatabase();
-                db.delete("tarea", "idTarea = " + tareaSeleccionada.getIdTarea(),null);
+                db.delete("tarea", "idTarea = " + tareas.get(info.position).getIdTarea(),null);
                 Intent activity2 = new Intent(this,TasksActivity.class);
                 startActivity(activity2);
                 return true;
             case R.id.itmDone:
                 ContentValues values = new ContentValues();
-                if(tareaSeleccionada.isTareaFinalizada())
+                if(tareas.get(info.position).isTareaFinalizada())
                    values.put("finalizada",0);
                 else
                     values.put("finalizada",1);
