@@ -36,17 +36,17 @@ public class NewTaskActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
-        etNombre = findViewById(R.id.etNombre);
-        etDescripcion = findViewById(R.id.etDescripcion);
-        etFecha = findViewById(R.id.etFecha);
-        etPrecio = findViewById(R.id.etPrecio);
-        spnPrioridad = findViewById(R.id.spnPrioridad);
+        etNombre = findViewById(R.id.etNewNombre);
+        etDescripcion = findViewById(R.id.etNewDescripcion);
+        etFecha = findViewById(R.id.etNewFecha);
+        etPrecio = findViewById(R.id.etNewPrecio);
+        spnPrioridad = findViewById(R.id.spnNewPrioridad);
         spnPrioridad.setAdapter(new ArrayAdapter<Prioridad>(this, android.R.layout.simple_spinner_item, Prioridad.values()));
     }
 
     public void mostrarCalendario(View view) {
         switch (view.getId()) {
-            case R.id.etFecha:
+            case R.id.etNewFecha:
                 DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {

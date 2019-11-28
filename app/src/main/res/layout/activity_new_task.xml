@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrNewTask"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -13,7 +14,7 @@
         tools:context=".NewTaskActivity">
 
         <EditText
-            android:id="@+id/etNombre"
+            android:id="@+id/etNewNombre"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -28,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/etDescripcion"
+            android:id="@+id/etNewDescripcion"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -41,10 +42,10 @@
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+            app:layout_constraintTop_toBottomOf="@+id/etNewNombre" />
 
         <EditText
-            android:id="@+id/etFecha"
+            android:id="@+id/etNewFecha"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -60,10 +61,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
+            app:layout_constraintTop_toBottomOf="@+id/etNewDescripcion" />
 
         <EditText
-            android:id="@+id/etPrecio"
+            android:id="@+id/etNewPrecio"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -75,10 +76,10 @@
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etFecha" />
+            app:layout_constraintTop_toBottomOf="@+id/etNewFecha" />
 
         <Spinner
-            android:id="@+id/spnPrioridad"
+            android:id="@+id/spnNewPrioridad"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -86,10 +87,10 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPrecio" />
+            app:layout_constraintTop_toBottomOf="@+id/etNewPrecio" />
 
         <Button
-            android:id="@+id/btnCancelar"
+            android:id="@+id/btnNewCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -99,7 +100,7 @@
             android:text="@string/cancel"
             app:layout_constraintEnd_toStartOf="@+id/btnCrearTarea"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spnPrioridad" />
+            app:layout_constraintTop_toBottomOf="@+id/spnNewPrioridad" />
 
         <Button
             android:id="@+id/btnCrearTarea"
@@ -112,6 +113,6 @@
             android:text="@string/create_task"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnCancelar"
-            app:layout_constraintTop_toBottomOf="@+id/spnPrioridad" />
+            app:layout_constraintTop_toBottomOf="@+id/spnNewPrioridad" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

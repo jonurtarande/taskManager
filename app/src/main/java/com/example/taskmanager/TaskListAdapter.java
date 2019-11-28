@@ -26,16 +26,15 @@ public class TaskListAdapter extends ArrayAdapter<Tarea> {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = context.getLayoutInflater();
-        View item = inflater.inflate(R.layout.tarea, null);
+        View item = context.getLayoutInflater().inflate(layout, null);
 
         ImageView imgPrioridad = item.findViewById(R.id.imgPrioridad);
-        switch (tareas.get(position).getPrioridad()){
+        switch (tareas.get(position).getPrioridad().toString()){
             // Cambiar imagenes
-            case URGENTE: imgPrioridad.setImageResource(R.drawable.login);
-            case ALTA: imgPrioridad.setImageResource(R.drawable.login);
-            case MEDIA: imgPrioridad.setImageResource(R.drawable.login);
-            case BAJA: imgPrioridad.setImageResource(R.drawable.login);
+            case "URGENTE": imgPrioridad.setImageResource(R.drawable.login);break;
+            case "ALTA": imgPrioridad.setImageResource(R.drawable.login);break;
+            case "MEDIA": imgPrioridad.setImageResource(R.drawable.login);break;
+            case "BAJA": imgPrioridad.setImageResource(R.drawable.login);break;
         }
         TextView txtTarea = item.findViewById(R.id.txtTarea);
         txtTarea.setText(tareas.get(position).getNombre());

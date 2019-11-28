@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditTaskActivity extends AppCompatActivity {
 
+    private int idTarea;
     private EditText etNombre;
     private EditText etDescripcion;
     private EditText etFecha;
@@ -29,7 +30,7 @@ public class EditTaskActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_task);
+        setContentView(R.layout.activity_edit_task);
 
         initComponents();
         dbAdmin = new AdminSQLiteOpenHelper(this,"dbTasks",null,1);
@@ -39,7 +40,7 @@ public class EditTaskActivity extends AppCompatActivity {
 
     private void setValues() {
         Bundle bundle = getIntent().getExtras();
-        int idTarea = bundle.getInt("pos");
+        idTarea = bundle.getInt("id");
         Cursor c = db.rawQuery("SELECT * FROM tarea WHERE idTarea=" + idTarea, null);
         etNombre.setText(c.getString(1));
         etDescripcion.setText(c.getString(2));
@@ -49,17 +50,17 @@ public class EditTaskActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
-        etNombre = findViewById(R.id.etNombre);
-        etDescripcion = findViewById(R.id.etDescripcion);
-        etFecha = findViewById(R.id.etFecha);
-        etPrecio = findViewById(R.id.etPrecio);
-        spnPrioridad = findViewById(R.id.spnPrioridad);
+        etNombre = findViewById(R.id.etEditNombre);
+        etDescripcion = findViewById(R.id.etEditDescripcion);
+        etFecha = findViewById(R.id.etEditFecha);
+        etPrecio = findViewById(R.id.etEditPrecio);
+        spnPrioridad = findViewById(R.id.spnEditPrioridad);
         spnPrioridad.setAdapter(new ArrayAdapter<Prioridad>(this, android.R.layout.simple_spinner_item, Prioridad.values()));
     }
 
     public void mostrarCalendario(View view) {
         switch (view.getId()) {
-            case R.id.etFecha:
+            case R.id.etEditFecha:
                 DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -103,7 +104,7 @@ public class EditTaskActivity extends AppCompatActivity {
         values.put("precio", etPrecio.getText().toString());
         values.put("prioridad", spnPrioridad.getSelectedItem().toString());
         values.put("finalizada", 0);
-        db.insert("tarea",null, values);
+        db.update("tarea",values, "idTarea="+idTarea,null);
         db.close();
     }
 

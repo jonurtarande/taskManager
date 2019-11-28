@@ -8,13 +8,13 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/lytNewTask"
+        android:id="@+id/lytEditTask"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         tools:context=".NewTaskActivity">
 
         <EditText
-            android:id="@+id/etNombre"
+            android:id="@+id/etEditNombre"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/etDescripcion"
+            android:id="@+id/etEditDescripcion"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -42,10 +42,10 @@
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+            app:layout_constraintTop_toBottomOf="@+id/etEditNombre" />
 
         <EditText
-            android:id="@+id/etFecha"
+            android:id="@+id/etEditFecha"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -61,10 +61,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
+            app:layout_constraintTop_toBottomOf="@+id/etEditDescripcion" />
 
         <EditText
-            android:id="@+id/etPrecio"
+            android:id="@+id/etEditPrecio"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -76,10 +76,10 @@
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etFecha" />
+            app:layout_constraintTop_toBottomOf="@+id/etEditFecha" />
 
         <Spinner
-            android:id="@+id/spnPrioridad"
+            android:id="@+id/spnEditPrioridad"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -87,10 +87,10 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPrecio" />
+            app:layout_constraintTop_toBottomOf="@+id/etEditPrecio" />
 
         <Button
-            android:id="@+id/btnCancelar"
+            android:id="@+id/btnEditCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -100,10 +100,10 @@
             android:text="@string/cancel"
             app:layout_constraintEnd_toStartOf="@+id/btnCrearTarea"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spnPrioridad" />
+            app:layout_constraintTop_toBottomOf="@+id/spnEditPrioridad" />
 
         <Button
-            android:id="@+id/btnCrearTarea"
+            android:id="@+id/btnEditTarea"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -112,7 +112,7 @@
             android:onClick="createTask"
             android:text="@string/save_changes"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnCancelar"
-            app:layout_constraintTop_toBottomOf="@+id/spnPrioridad" />
+            app:layout_constraintStart_toEndOf="@+id/btnEditCancelar"
+            app:layout_constraintTop_toBottomOf="@+id/spnEditPrioridad" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

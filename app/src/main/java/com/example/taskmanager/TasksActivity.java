@@ -89,7 +89,7 @@ public class TasksActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.itmEditTask:
                 Intent activity = new Intent(this,EditTaskActivity.class);
-                activity.putExtra("pos", info.position);
+                activity.putExtra("id", tareas.get(info.position).getIdTarea());
                 startActivity(activity);
                 return true;
             case R.id.itmDeleteTask:
@@ -100,12 +100,14 @@ public class TasksActivity extends AppCompatActivity {
                 startActivity(activity2);
                 return true;
             case R.id.itmDone:
+                dbAdmin = new AdminSQLiteOpenHelper(this,"dbTasks",null,1);
+                db = dbAdmin.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 if(tareas.get(info.position).isTareaFinalizada())
                    values.put("finalizada",0);
                 else
                     values.put("finalizada",1);
-
+                db.update("tarea",values,"idTarea="+tareas.get(info.position).getIdTarea(),null);
                 Intent activity3 = new Intent(this,TasksActivity.class);
                 startActivity(activity3);
                 return true;
