@@ -42,11 +42,18 @@ public class EditTaskActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         idTarea = bundle.getInt("id");
         Cursor c = db.rawQuery("SELECT * FROM tarea WHERE idTarea=" + idTarea, null);
-        etNombre.setText(c.getString(1));
-        etDescripcion.setText(c.getString(2));
-        etFecha.setText(c.getString(3));
-        etPrecio.setText((int) c.getDouble(4));
-        spnPrioridad.setSelection(Integer.parseInt(c.getString(5)));
+        if(c.moveToFirst()){
+            etNombre.setText(c.getString(1));
+            etDescripcion.setText(c.getString(2));
+            etFecha.setText(c.getString(3));
+            etPrecio.setText(String.valueOf(c.getDouble(4)));
+            switch (c.getString(5)){
+                case "URGENTE": spnPrioridad.setSelection(0);break;
+                case "ALTA": spnPrioridad.setSelection(1);break;
+                case "MEDIA": spnPrioridad.setSelection(2);break;
+                case "BAJA": spnPrioridad.setSelection(3);break;
+            }
+        }
     }
 
     private void initComponents() {
