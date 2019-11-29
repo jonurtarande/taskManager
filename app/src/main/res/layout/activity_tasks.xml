@@ -20,19 +20,29 @@
             android:id="@+id/tabAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/all" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/done" />
+            android:clickable="true"
+            android:onClick="tabChanged"
+            android:text="@string/all"
+            android:focusable="true" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabUndone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/undone" />
+            android:clickable="true"
+            android:onClick="showUndone"
+            android:text="@string/undone"
+            android:focusable="true" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="showDone"
+            android:text="@string/done"
+            android:focusable="true" />
+
     </com.google.android.material.tabs.TabLayout>
 
     <ListView

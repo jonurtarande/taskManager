@@ -1,8 +1,7 @@
 package com.example.taskmanager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,13 +13,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 
 public class TasksActivity extends AppCompatActivity {
 
+    //private TabItem tabDone;
+    //private TabItem tabUndone;
+    //private TabItem tabAll;
+    private TabLayout tabs;
     private TaskListAdapter adapter;
     private ListView listaTareas;
     private ArrayList<Tarea> tareas;
+    private ArrayList<Tarea> done;
+    private ArrayList<Tarea> undone;
     private AdminSQLiteOpenHelper dbAdmin;
     private SQLiteDatabase db;
 
@@ -31,6 +40,50 @@ public class TasksActivity extends AppCompatActivity {
 
         initComponents();
         initDB();
+        adapter = new TaskListAdapter(this, R.layout.tarea, tareas);
+        listaTareas.setAdapter(adapter);
+        registerForContextMenu(listaTareas);
+
+    }
+
+    private void initComponents() {
+        tareas = new ArrayList<Tarea>();
+        done = new ArrayList<Tarea>();
+        undone = new ArrayList<Tarea>();
+        listaTareas = (ListView) findViewById(R.id.lstTarea);
+        tabs = (TabLayout) findViewById(R.id.lytTab);
+    }
+
+    public void showAll(View view){
+        adapter = new TaskListAdapter(this, R.layout.tarea, tareas);
+        listaTareas.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void showDone(View view){
+        adapter = new TaskListAdapter(this, R.layout.tarea, done);
+        listaTareas.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void showUndone(View view){
+        adapter = new TaskListAdapter(this, R.layout.tarea, undone);
+        listaTareas.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    private void setDone(){
+        for(Tarea tarea:tareas){
+            if(tarea.isTareaFinalizada())
+                done.add(tarea);
+        }
+    }
+
+    private void setUnDone(){
+        for(Tarea tarea:tareas){
+            if(!tarea.isTareaFinalizada())
+                undone.add(tarea);
+        }
     }
 
     private void initDB() {
@@ -51,14 +104,8 @@ public class TasksActivity extends AppCompatActivity {
             }while(c.moveToNext());
         }
         db.close();
-    }
-
-    private void initComponents() {
-        tareas = new ArrayList<Tarea>();
-        adapter = new TaskListAdapter(this, R.layout.tarea, tareas);
-        listaTareas = (ListView) findViewById(R.id.lstTarea);
-        listaTareas.setAdapter(adapter);
-        registerForContextMenu(listaTareas);
+        setDone();
+        setUnDone();
     }
 
     @Override
@@ -115,5 +162,6 @@ public class TasksActivity extends AppCompatActivity {
                 return super.onContextItemSelected(item);
         }
     }
+
 
 }

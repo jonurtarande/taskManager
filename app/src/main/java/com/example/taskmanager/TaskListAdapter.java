@@ -1,7 +1,5 @@
 package com.example.taskmanager;
 
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -37,7 +35,7 @@ public class TaskListAdapter extends ArrayAdapter<Tarea> {
             case "BAJA": imgPrioridad.setImageResource(R.drawable.login);break;
         }
         TextView txtTarea = item.findViewById(R.id.txtTarea);
-        txtTarea.setText(tareas.get(position).getNombre());
+        txtTarea.setText(tareas.get(position).getNombre() + " Done: " + tareas.get(position).isTareaFinalizada());
 
         return item;
     }
